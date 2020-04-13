@@ -119,6 +119,7 @@ stages:
         azureSubscription: $(azureSubscription)
         scriptLocation: inlineScript
         inlineScript: 'az acr helm push -n $(containerRegistryName) /home/vsts/work/1/a/cart-api-$(Build.BuildId).tgz'
+## test
 
   - job: docker
     pool: Hosted Ubuntu 1604
