@@ -94,18 +94,34 @@ stages:
         scriptLocation: inlineScript
         inlineScript: 'az acr login --name $(containerRegistryName)'
 
-    - task: HelmDeploy@0
-      displayName: 'helm init --client-only'
-      inputs:
-        connectionType: None
-        command: init
-        arguments: '--client-only'
+ ##   - task: HelmDeploy@0
+ ##     displayName: 'helm init --client-only'
+##      inputs:
+##        connectionType: None
+ ##       command: init
+ ##       arguments: '--client-only'
+
+  ##  - task: HelmDeploy@0
+  ##    displayName: 'helm package (tt-cart)'
+  ##    inputs:
+  ##      command: package
+  ##      chartPath: 'ops40/demos/tailwind-cart-api/cart-api'
+  ##      arguments: '--version $(Build.BuildId)'
 
     - task: HelmDeploy@0
-      displayName: 'helm package (tt-cart)'
       inputs:
-        command: package
+        connectionType: 'Azure Resource Manager'
+        azureSubscription: $(azureSubscription)
+        azureResourceGroup: $(aks-cluster-rg)
+        kubernetesCluster: $(aks-cluster)
+        useClusterAdmin: true
+        command: 'init'
+
+    - task: HelmDeploy@0
+      inputs:
+        command: 'package'
         chartPath: 'ops40/demos/tailwind-cart-api/cart-api'
+        chartVersion: '--version $(Build.BuildId)'
         arguments: '--version $(Build.BuildId)'
 
     - task: AzureCLI@1
