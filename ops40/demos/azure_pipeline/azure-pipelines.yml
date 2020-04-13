@@ -113,22 +113,6 @@ stages:
         chartPath: 'ops40/demos/tailwind-cart-api/cart-api'
         arguments: '--version $(Build.BuildId)'
 
-  ##  - task: HelmDeploy@0
-  ##    inputs:
-   ##     connectionType: 'Azure Resource Manager'
-  ##      azureSubscription: $(azureSubscription)
-  ##      azureResourceGroup: $(aks-cluster-rg)
-  ##      kubernetesCluster: $(aks-cluster)
-  ##      useClusterAdmin: true
-  ##      command: 'init'
-
- ##   - task: HelmDeploy@0
-  ##    inputs:
- ##       command: 'package'
-  ##      chartPath: 'ops40/demos/tailwind-cart-api/cart-api'
-##        chartVersion: '--version $(Build.BuildId)'
-##        arguments: '--version $(Build.BuildId)'
-
     - task: AzureCLI@1
       displayName: 'AZ ACR helm push (tt-cart)'
       inputs:
