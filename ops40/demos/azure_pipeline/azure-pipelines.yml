@@ -125,9 +125,7 @@ stages:
     continueOnError: false
     timeoutInMinutes: 20
 
-
-    ##TEST Subscription
-    
+   
     steps:
 
     - task: AzureCLI@1
