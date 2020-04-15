@@ -5,26 +5,27 @@ pr:
 - master
 
 variables:
-  #AzureRe-deploy
+
   # Azure
   azureSubscription: azure-service-connection
 
   # Container Registry
   containerRegistryName: ttacrvbnyhw4bkeqj2
-  containerRegistryFqdn: ttacrvbnyhw4bkeqj2.azurecr.io
+  containerRegistryFqdn: ttacrvbnyhw4bkeqj2.azurecr.io 
 
   # AKS Pre-Production
   aks-cluster-rg-pre-prod: OPS40-TailwindTraders_AE
-  aks-cluster-pre-prod: tailwindtradersaksvbnyhw4bkeqj2  
+
+  aks-cluster-pre-prod: tailwindtradersaksvbnyhw4bkeqj2
   ingress-pre-prod: 453fa3f989614cac8f91.eastus.aksapp.io
 
   # Production
   aks-cluster-rg: OPS40-TailwindTraders_AE
-  aks-cluster: tailwindtradersaksvbnyhw4bkeqj2  
+  aks-cluster: tailwindtradersaksvbnyhw4bkeqj2
   ingress: 453fa3f989614cac8f91.eastus.aksapp.io
 
   # Production Database
-  hostDB: https://ttshoppingdbvbnyhw4bkeqj2.documents.azure.com:443/  
+  hostDB: https://ttshoppingdbvbnyhw4bkeqj2.documents.azure.com:443/
 
 stages:
 
@@ -94,11 +95,6 @@ stages:
         azureSubscription: $(azureSubscription)
         scriptLocation: inlineScript
         inlineScript: 'az acr login --name $(containerRegistryName)'
-    
-    - task: HelmInstaller@0
-      inputs:
-        helmVersion: '2.14.3'
-        checkLatestHelmVersion: false
 
     - task: HelmDeploy@0
       displayName: 'helm init --client-only'
@@ -126,7 +122,6 @@ stages:
     continueOnError: false
     timeoutInMinutes: 20
 
-   
     steps:
 
     - task: AzureCLI@1
