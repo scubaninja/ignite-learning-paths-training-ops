@@ -5,7 +5,7 @@ pr:
 - master
 
 variables:
-
+  #AzureRe-deploy
   # Azure
   azureSubscription: azure-service-connection
 
