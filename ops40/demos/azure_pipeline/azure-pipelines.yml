@@ -5,27 +5,27 @@ pr:
 - master
 
 variables:
-  # Test
+  
   # Azure
   azureSubscription: azure-service-connection
 
   # Container Registry
-  containerRegistryName: ttacrvbnyhw4bkeqj2
-  containerRegistryFqdn: ttacrvbnyhw4bkeqj2.azurecr.io 
+  containerRegistryName: ttacry2y7hegu5gof6
+  containerRegistryFqdn: ttacry2y7hegu5gof6.azurecr.io 
 
   # AKS Pre-Production
-  aks-cluster-rg-pre-prod: OPS40-TailwindTraders_AE
+  aks-cluster-rg-pre-prod: OPS40Demo
 
-  aks-cluster-pre-prod: tailwindtradersaksvbnyhw4bkeqj2
-  ingress-pre-prod: 453fa3f989614cac8f91.eastus.aksapp.io
+  aks-cluster-pre-prod: tailwindtradersaksy2y7hegu5gof6
+  ingress-pre-prod: dea98b22174a4178bc0f.eastus.aksapp.io
 
   # Production
-  aks-cluster-rg: OPS40-TailwindTraders_AE
-  aks-cluster: tailwindtradersaksvbnyhw4bkeqj2
-  ingress: 453fa3f989614cac8f91.eastus.aksapp.io
+  aks-cluster-rg: OPS40Demo
+  aks-cluster: tailwindtradersaksy2y7hegu5gof6
+  ingress: dea98b22174a4178bc0f.eastus.aksapp.io
 
   # Production Database
-  hostDB: https://ttshoppingdbvbnyhw4bkeqj2.documents.azure.com:443/
+  hostDB: https://ttshoppingdby2y7hegu5gof6.documents.azure.com:443/
 
 stages:
 
