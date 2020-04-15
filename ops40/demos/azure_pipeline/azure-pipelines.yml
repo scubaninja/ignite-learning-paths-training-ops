@@ -34,7 +34,7 @@ stages:
   jobs:
   - job: tests
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     continueOnError: false
     timeoutInMinutes: 20
 
