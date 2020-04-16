@@ -5,7 +5,7 @@ pr:
 - master
 
 variables:
-  #FixMe
+  
   # Azure
   azureSubscription: azure-service-connection
 
